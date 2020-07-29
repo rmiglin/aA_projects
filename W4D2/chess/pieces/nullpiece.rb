@@ -1,12 +1,13 @@
 require "singleton"
 require_relative '../piece.rb'
+
 class NullPiece < Piece
 
-include Singleton
+    include Singleton
 
-def initialize
-    @value = :blank
-    @symbol = ""
-end
+    def initialize
+        @value = :blank
+        @symbol = ""
+    end
 
 end

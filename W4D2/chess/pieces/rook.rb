@@ -1,15 +1,14 @@
-require_relative '../piece.rb'
+require_relative '../piece'
 require_relative 'slideable'
 
 class Rook < Piece
 
-include Slideable
+    include Slideable
 
-#protected
+    #protected
 
-def move_dirs
-    HORIZONTAL_DIRS
-    #[[1 ,0], [0,1], [-1,0], [0,-1]]
-end
+    def move_dirs
+        HORIZONTAL_DIRS
+    end
 
 end

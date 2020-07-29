@@ -18,7 +18,25 @@ class Board
                 row = []
                 while j < 8
                     pos = [i, j]
-                    row << Piece.new(pos, sym, self)
+                    #row << Piece.new(pos, sym, self)
+                    ######
+                    if i == 0 || i == 7
+                        case j
+                        when 0 || 7
+                            row << Rook.new(pos, sym, self)
+                        when 1 || 6
+                            row << Knight.new(pos, sym, self)
+                        when 2 || 5
+                            row << Bishop.new(pos, sym, self)
+                        when 3
+                            row << Queen.new(pos, sym, self)
+                        else
+                            row << King.new(pos, sym, self)
+                        end
+                    else
+                        row << Pawn.new(pos, sym, self)
+                    end
+                    ######
                     j += 1
                 end
                 @rows << row
@@ -28,14 +46,6 @@ class Board
             i += 1
         end
     end
-
-    # def set_piece_instances
-    #     @rows.each do |sub_arr|
-    #         sub_arr.each do |ele|
-    #             ele.board = self if ele.is_a?(Piece)
-    #         end
-    #     end
-    # end
     
     def move_piece(start_pos, end_pos)
         raise "no piece at #{start_pos}" if self[start_pos].nil?
@@ -45,7 +55,7 @@ class Board
         end
         self[end_pos] = self[start_pos]
         self[end_pos].pos = end_pos
-        self[start_pos] = nil
+        self[start_pos] = NullPiece.instance
         #self[end_pos].board = @rows
     end
 

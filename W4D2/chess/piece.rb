@@ -1,5 +1,5 @@
-require_relative 'board'
-
+#require_relative 'board'
+require 'byebug'
 class Piece
 
     attr_accessor :value, :pos, :board
@@ -11,10 +11,14 @@ class Piece
     end
 
     def valid_moves
+        #debugger
         moves_arr = []
-        (0...self.board.length).each do |i|
-            (0...self.board.length).each do |j|
-                moves_arr << [i, j] if @board[i][j] == nil || @board[i][j].value != self.value
+        (0...8).each do |i|
+            (0...8).each do |j|
+                #if @board[[i, j]] !=
+                if @board[[i, j]].is_a?(NullPiece) || @board[[i, j]].value != self.value
+                    moves_arr << [i, j] 
+                end
             end
         end
         moves_arr

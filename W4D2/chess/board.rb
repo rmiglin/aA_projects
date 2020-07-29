@@ -1,4 +1,5 @@
 require_relative 'piece'
+require_relative './pieces/nullpiece'
 
 class Board
 
@@ -17,24 +18,24 @@ class Board
                 row = []
                 while j < 8
                     pos = [i, j]
-                    row << Piece.new(pos, sym)
+                    row << Piece.new(pos, sym, self)
                     j += 1
                 end
                 @rows << row
             else
-                @rows << Array.new(8, nil) 
+                @rows << Array.new(8, NullPiece.instance) 
             end
             i += 1
         end
     end
 
-    def set_piece_instances
-        @rows.each do |sub_arr|
-            sub_arr.each do |ele|
-                ele.board = self if ele.is_a?(Piece)
-            end
-        end
-    end
+    # def set_piece_instances
+    #     @rows.each do |sub_arr|
+    #         sub_arr.each do |ele|
+    #             ele.board = self if ele.is_a?(Piece)
+    #         end
+    #     end
+    # end
     
     def move_piece(start_pos, end_pos)
         raise "no piece at #{start_pos}" if self[start_pos].nil?
@@ -69,5 +70,7 @@ class Board
         end
         pretty_board.each { |row| print row }
     end
+
+
 
 end

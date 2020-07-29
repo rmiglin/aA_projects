@@ -1,2 +1,0 @@
-class NullPiece < Piece
-end

@@ -4,10 +4,10 @@ class Piece
 
     attr_accessor :value, :pos, :board
 
-    def initialize(pos, value)
+    def initialize(pos, value, board)
         @pos = pos
         @value = value
-        @board = nil
+        @board = board
     end
 
     def valid_moves
@@ -21,8 +21,8 @@ class Piece
     end
 end
 
-module Slideable
-end
+# module Slideable
+# end
 
-module Stepable
-end
+# module Stepable
+# end

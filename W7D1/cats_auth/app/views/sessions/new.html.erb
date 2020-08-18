@@ -1,0 +1,19 @@
+<section>
+    <h1>Sign In</h1>
+
+    <form>
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <label for="username">User name</label>
+        <input type="text" name="user[user_name]" id="username">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="user[password]" id="password">
+        <br>
+
+        <input type="submit">
+    </form>
+
+
+</section>

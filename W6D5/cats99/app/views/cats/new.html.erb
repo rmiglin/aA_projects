@@ -1,0 +1,30 @@
+<h1> Add cat to the cat party!</h1>
+
+<form action="/cats" method="post">
+    <label for="birth_date">Birth Date</label>
+    <input type="text" id="birth_date" name="cat[birth_date]">
+
+    <label for="name">Name</label>
+    <input id ="name" type = "text" name = "cat[name]">
+
+    <select name="cat[color]">
+        <option disabled selected>-- Please Select --</option>
+        <option value="brown">brown</option>
+        <option value="white">white</option>
+        <option value="black">black</option>
+        <option value="orange">orange</option>
+        <option value="gray">gray</option>
+    </select>
+    
+    <input type="radio" id="sex" name="cat[sex]" value="M">
+    <label for="sex">Male</label><br>
+    <input type="radio" id="sex" name="cat[sex]" value="F">
+    <label for="sex">Female</label><br>
+
+    <label for="description">Description</label>
+    <textarea id ="description" type = "text" name = "cat[description]">
+        describe your cat here
+    </textarea>
+
+    <input type="submit" value="add cat">
+</form>

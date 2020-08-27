@@ -1,0 +1,11 @@
+<h2><%= @user.username %></h2>
+<form action=<%= new_sub_url %> method="GET">
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+    <button type="submit"> Create a new sub </button>
+</form>
+<ul>
+    <%@user.subs.each do |sub|%>
+        <li><a href=<%=sub_url(sub.id)%>>sub.title</a></li>
+    <% end %>
+</ul>
+

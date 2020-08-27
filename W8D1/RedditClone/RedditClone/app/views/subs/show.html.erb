@@ -1,0 +1,14 @@
+<h2><%= @sub.title %></h2>
+<p><%= @sub.description %></p>
+
+<form action=<%= new_post_url %> method="GET">
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+    <button type="submit"> Create a Post </button>
+</form>
+
+<ul>
+    <% @sub.posts.each do |post|%>
+        <li><a href=<%= post_url%>><%= post.title %></a></li>
+    <% end %>
+</ul>
+

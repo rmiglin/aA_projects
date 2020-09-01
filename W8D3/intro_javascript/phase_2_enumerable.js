@@ -12,13 +12,30 @@ Array.prototype.myEach = function(callback){
 
 Array.prototype.myMap = function(callback) {
 
-    res_arr = []
+    res_arr = [];
     //closure 
-    this.myEach(callback)
+    this.myEach((ele)=>{res_arr.push(callback(ele))});
 
-}
+    return res_arr;
+
+};
+
+Array.prototype.myReduce = function (func, initialValue){
+
+    let arr = this; 
+
+    if (initialValue === undefined){
+        initialValue = arr[0];
+        arr = arr.slice(1);
+    }
+
+    counter = initialValue;
+
+    arr.myEach((ele)=>(counter = func(counter, ele)));
+    
+    return counter;
+
+};
 
 
-[1, 2, 3].myMap(function (num) {
-    console.log(num + 1);
-});
+[1, 2, 3].myReduce(function(acc, el){return acc + el}, 25);

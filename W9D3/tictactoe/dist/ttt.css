@@ -1,0 +1,60 @@
+/* {
+    background: pink;
+    display: flex;
+    border: 1px solid lawngreen; 
+    width: 300px;
+    height:500px; */
+
+h1{
+justify-self:center;
+font-size:60px;
+margin:30px;
+text-align:center;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.board{
+    list-style:none;
+    width:300px;
+    display:flex;
+    flex-wrap:wrap;
+    border-right:5px solid yellowgreen;    
+    border:5px solid yellowgreen;
+    justify-self:center;
+    padding:0;
+    background:pink;
+    text-align:center;
+}
+.board li {
+    border:5px solid lawngreen;
+    width:90px;
+    height:100px;
+    font-size:50px;
+    align-self:center;
+    
+}
+.board li:hover{
+    background:rgb(243, 3, 223);
+}
+
+/* .x:after{
+    background:white;
+    content:'x';
+}
+
+.o:after{
+    background:black;
+    content:'o';
+} */
+
+.x{
+    align-self: center;
+    background:honeydew;
+    color: lightsalmon;
+}
+.o{
+    color:black;
+}
